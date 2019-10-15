@@ -1,3 +1,5 @@
+## [1.0.0] 
+* Update document image
 ## [0.0.3] 
 * Update document and add notes
 ## [0.0.2] 

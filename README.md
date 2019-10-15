@@ -10,7 +10,7 @@ Handling the original flutter print method incomplete, no json format problem.Th
 
 ```yaml
 # add this line to your dependencies
-flutter_printer: ^0.0.3
+flutter_printer: ^1.0.0
 ```
 
 ```dart
@@ -20,6 +20,9 @@ import 'flutter_printer.dart';
 ```dart
 Printer.printMapJsonLog(dynamic,);
 ```
+
+![](https://github.com/lisen87/flutter_printer/blob/master/screenshots/print.png)
+
 Printer property | description
 --------|------------
 dynamic | List or Map or String
