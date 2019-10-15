@@ -3,22 +3,23 @@ import 'package:flutter/material.dart';
 class Printer {
   static bool enable = true;
 
+  ///Print String
   static void printLog(dynamic content) {
     if (enable) {
       _warp(content.toString());
     }
   }
-
-  //
+  ///Print map or list, etc.
+  ///state Current state
+  ///lineNum Printed location
   static void printMapJsonLog(dynamic content, {State state, int lineNum}) {
     if (enable) {
       _warpMapJson(content, state: state, lineNum: lineNum);
     }
   }
 
+  ///Format json data
   static void _warpJson(String msg) {
-//    print(
-//        "┌------------------------------------------------------------------------------------------------------------------------------------------┐");
     if (!msg.contains("{") && !msg.contains("}")) {
       print("   "+msg);
     } else {
@@ -32,17 +33,15 @@ class Printer {
       });
       print("\t\t" + rsResult.substring(0, rsResult.length - 1) + "}");
     }
-//    print(
-//        "└------------------------------------------------------------------------------------------------------------------------------------------┘");
   }
 
-  //带缩进
+  ///With indentation
   static void _warpMapJson(dynamic msg, {State state, int lineNum: 0}) {
     String top =
         "┌------------------------------------------------------------------------------------------------------------------------------------------┐";
     String bottom =
         "└------------------------------------------------------------------------------------------------------------------------------------------┘";
-    //当前State ---->
+    ///current State ---->
     String stateName = "StateName ----> " +
         state.toString().split("#")[0].toString() +
         ", lineNum ----> " +
@@ -50,12 +49,12 @@ class Printer {
     top = top.replaceRange(10, stateName.length, stateName);
     bottom = bottom.replaceRange(10, stateName.length, stateName);
     print(top);
-//    Map<String, dynamic> map = msg;
     _genReadableJson(msg);
 
     print(bottom);
   }
 
+  ///Format json data by type
   static void _genReadableJson(dynamic data) {
     if (data is List) {
       _resolveList(1, data, false);
@@ -70,6 +69,7 @@ class Printer {
     }
   }
 
+  ///Format json
   static void _resolveMap(int space, Map<dynamic, dynamic> data) {
     int index = 0;
     space++;
@@ -91,7 +91,6 @@ class Printer {
       stringBuffer.write(":");
       if (value is Map) {
         print(stringBuffer.toString());
-//        space ++;
         _resolveMap(space, value);
         if (index == data.length - 1) {
           StringBuffer stringBuffer = new StringBuffer();
@@ -128,12 +127,12 @@ class Printer {
     }
     stringBufferEnd.write("}");
     if (index == data.length) {
-//      stringBufferEnd.write(",======");
     }
 
     print(stringBufferEnd.toString());
   }
 
+  ///Format list json
   static void _resolveList(int space, List list, bool isLast) {
     int index = 0;
     space++;
@@ -183,6 +182,7 @@ class Printer {
     print(stringBufferEnd.toString());
   }
 
+  ///Wrapped String
   static void _warp(String msg) {
     print(
         "┌------------------------------------------------------------------------------------------------------------------------------------------┐");

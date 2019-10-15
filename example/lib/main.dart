@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_printer/Printer.dart';
+import 'package:flutter_printer/flutter_printer.dart';
 
 void main() => runApp(MyApp());
 
