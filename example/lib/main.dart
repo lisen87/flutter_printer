@@ -57,12 +57,18 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
 
       List list = ["http://xxxx0.png","http://xxxx1.png","http://xxxx2.png","http://xxxx3.png"];
+      Map map1 = {"id":"1"};
+      List list1 = [map1,map1,];
+      List list2 = [list1,[list1,list1,[list1,null]],null,list1,[],];
 
-      Map map = {"id":"1","images": list,"orders":[],"member":{"id":"888","name":"leeson","phone":null}};
+      Map map = {"map" : {"key1" : 1,"key2" : "2",},"id":"1","orders":null,"member":{"id":"888","name":"leeson","phone":null,"age" : 88,"last" : list},"last" : list};
 
-      Printer.printMapJsonLog(map,state: this,lineNum: 63);
-      Printer.printMapJsonLog(list,state: this,lineNum: 64);
-      Printer.printLog("printer--> Printer.printLog");
+      Printer.printMapJsonLog(map,stackTrace: StackTrace.current,prefix: "我是测试前缀:",);
+      Printer.printMapJsonLog(list,stackTrace: StackTrace.current,);
+
+      ///不推荐的使用方式
+      /// Not recommended
+      Printer.printMapJsonLog("printer--> Printer.printLog"+map.toString(),stackTrace: StackTrace.current,);
 
     });
   }

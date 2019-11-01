@@ -1,3 +1,5 @@
+## [1.0.1] 
+* Optimize printing json data display format and increase print position information
 ## [1.0.0] 
 * Update document image
 ## [0.0.3] 
