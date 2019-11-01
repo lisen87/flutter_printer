@@ -1,3 +1,5 @@
+## [1.0.3]
+* Optimize print data 
 ## [1.0.2] 
 * Remove useless code
 ## [1.0.1] 
