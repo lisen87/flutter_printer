@@ -49,11 +49,50 @@ class Printer {
     } else if (data is Map) {
       _resolveMap(1, data, false);
     } else {
-      StringBuffer stringBuffer = new StringBuffer();
+      if(data is String){
+        _splitStr(1,data);
+      }else{
+        print("|\t"+ data.toString());
+      }
+    }
+  }
+
+  static _splitStr(int space ,String data){
+    if(data != null && data.contains("\n")){
+      StringBuffer stringBuffer = StringBuffer();
+      List<String> list = data.split(RegExp(r"\n"));
       stringBuffer.write("|");
-      stringBuffer.write("\t");
-      stringBuffer.write(data);
-      print(stringBuffer);
+      for (int i = 0; i < space ; i++) {
+        stringBuffer.write("\t");
+      }
+      list.forEach((str){
+        _splitLineStr(space,str);
+      });
+    }else{
+      _splitLineStr(space,data);
+    }
+  }
+
+  static _splitLineStr(int space ,String data) {
+    StringBuffer stringBuffer = StringBuffer();
+    int limit = 150;
+    if (data != null && data.length > limit) {
+      int count = data.length ~/ limit;
+      stringBuffer.write("|");
+      for (int i = 0; i < space; i++) {
+        stringBuffer.write("\t");
+      }
+      for (int i = 0; i < count; i++) {
+        if (i == count - 1) {
+          print(
+              stringBuffer.toString() + data.substring(i * limit, data.length));
+        } else {
+          print(stringBuffer.toString() +
+              data.substring(i * limit, i * limit + limit));
+        }
+      }
+    }else{
+      print("|\t"+ data);
     }
   }
 
@@ -87,7 +126,10 @@ class Printer {
           print(stringBuffer.toString());
         } else {
           if (value.length == 0) {
-            stringBuffer.write("[],");
+            stringBuffer.write("[]");
+            if(index != data.length){
+              stringBuffer.write(",");
+            }
             print(stringBuffer.toString());
           } else {
             print(stringBuffer.toString());
