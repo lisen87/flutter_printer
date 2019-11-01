@@ -16,22 +16,6 @@ class Printer {
     }
   }
 
-  ///Format json data
-  static void _warpJson(String msg) {
-    if (!msg.contains("{") && !msg.contains("}")) {
-      print("   " + msg);
-    } else {
-      RegExp regExp = RegExp(r"{|}|\[|,");
-      String rs = msg.replaceAllMapped(regExp, (Match m) => "${m[0]}\n");
-      //    print(rs);
-      String rs1 = rs.substring(0, rs.length - 2) + "\n}";
-      //    print(rs1);
-      String rsResult = rs1.replaceAllMapped(RegExp("\n"), (Match m) {
-        return "${m[0]}\t\t";
-      });
-      print("\t\t" + rsResult.substring(0, rsResult.length - 1) + "}");
-    }
-  }
 
   ///With indentation
   static void _warpMapJson(dynamic msg,
@@ -201,14 +185,4 @@ class Printer {
     }
   }
 
-  ///Wrapped String
-  static void _warp(String msg) {
-    print(
-        "┌------------------------------------------------------------------------------------------------------------------------------------------┐");
-    RegExp regExp = RegExp(r"{|}|\[");
-    String rs = msg.replaceAllMapped(regExp, (Match m) => "${m[0]}\n");
-    print("│\t" + rs);
-    print(
-        "└------------------------------------------------------------------------------------------------------------------------------------------┘");
-  }
 }

@@ -59,9 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
       List list = ["http://xxxx0.png","http://xxxx1.png","http://xxxx2.png","http://xxxx3.png"];
       Map map1 = {"id":"1"};
       List list1 = [map1,map1,];
-      List list2 = [list1,[list1,list1,[list1,null]],null,list1,[],];
+      List list2 = [list1,[list1,list1,list1,list1,list1,list1,list1,list1,list1,list1,list1,list1,list1,list1,list1,list1,list1,list1,list1,list1,list1,list1,list1,[list1,null]],null,list1,[],];
 
-      Map map = {"map" : {"key1" : 1,"key2" : "2",},"id":"1","orders":null,"member":{"id":"888","name":"leeson","phone":null,"age" : 88,"last" : list},"last" : list};
+      Map map = {"map" : {"key1" : 1,"key2" : "2","list2" : list2},"id":"1","orders":null,"member":{"id":"888","name":"leeson","phone":null,"age" : 88,"last" : list},"last" : list};
 
       Printer.printMapJsonLog(map,stackTrace: StackTrace.current,prefix: "我是测试前缀:",);
       Printer.printMapJsonLog(list,stackTrace: StackTrace.current,);
