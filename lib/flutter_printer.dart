@@ -10,7 +10,7 @@ class Printer {
   ///Any data can be printed. When the stackTrace is not null, the location where the printer is used can be displayed. The prefix prints the data prefix.
 
   static void printMapJsonLog(dynamic content,
-      {StackTrace stackTrace, String prefix}) {
+      {StackTrace? stackTrace, String? prefix}) {
     if (enable) {
       _warpMapJson(content, stackTrace: stackTrace, prefix: prefix);
     }
@@ -19,7 +19,7 @@ class Printer {
 
   ///With indentation
   static void _warpMapJson(dynamic msg,
-      {StackTrace stackTrace, String prefix}) {
+      {StackTrace? stackTrace, String? prefix}) {
     String top =
         "┌------------------------------------------------------------------------------------------------------------------------------------------┐";
     String bottom =
@@ -57,7 +57,7 @@ class Printer {
     }
   }
 
-  static _splitStr(int space ,String data){
+  static _splitStr(int space ,String? data){
     if(data != null && data.contains("\n")){
       StringBuffer stringBuffer = StringBuffer();
       List<String> list = data.split(RegExp(r"\n"));
@@ -73,7 +73,7 @@ class Printer {
     }
   }
 
-  static _splitLineStr(int space ,String data) {
+  static _splitLineStr(int space ,String? data) {
     StringBuffer stringBuffer = StringBuffer();
     int limit = 150;
     if (data != null && data.length > limit) {
@@ -92,7 +92,7 @@ class Printer {
         }
       }
     }else{
-      print("|\t"+ data);
+      print("|\t"+ data!);
     }
   }
 
@@ -120,21 +120,15 @@ class Printer {
         print(stringBuffer.toString());
         _resolveMap(space + 1, value, index != data.length);
       } else if (value is List) {
-        if (value == null) {
-          stringBuffer.write(null);
-          stringBuffer.write(",");
+        if (value.length == 0) {
+          stringBuffer.write("[]");
+          if(index != data.length){
+            stringBuffer.write(",");
+          }
           print(stringBuffer.toString());
         } else {
-          if (value.length == 0) {
-            stringBuffer.write("[]");
-            if(index != data.length){
-              stringBuffer.write(",");
-            }
-            print(stringBuffer.toString());
-          } else {
-            print(stringBuffer.toString());
-            _resolveList(space + 1, value, index != data.length);
-          }
+          print(stringBuffer.toString());
+          _resolveList(space + 1, value, index != data.length);
         }
       } else {
         if (value == null) {
@@ -168,7 +162,7 @@ class Printer {
   }
 
   ///Format list json
-  static void _resolveList(int space, List list, bool isLast) {
+  static void _resolveList(int space, List? list, bool isLast) {
     int index = 0;
     space++;
     StringBuffer stringBufferStart = new StringBuffer();

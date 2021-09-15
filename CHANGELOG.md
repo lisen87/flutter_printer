@@ -1,3 +1,6 @@
+## [2.0.0]
+* 使用flutter 2.0 迁移至空安全
+* Use flutter 2.0 to migrate to null-safety
 ## [1.0.3+1]
 * 修改 readme 中 import，无关紧要的更新
 * Modify import in readme, insignificant updates

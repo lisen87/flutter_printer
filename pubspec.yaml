@@ -1,11 +1,11 @@
 name: flutter_printer
 description: Handling the original flutter print method incomplete, no json format problem.This is a pure dart language development package
-version: 1.0.3+1
-author: lisen <453354858@qq.com>
+version: 2.0.0
 homepage: https://github.com/lisen87/flutter_printer
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
+  flutter: ">=1.20.0"
 
 dependencies:
   flutter:
