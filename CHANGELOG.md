@@ -1,3 +1,5 @@
+## [2.0.1]
+* 去除 flutter SDK 依赖
 ## [2.0.0]
 * 使用flutter 2.0 迁移至空安全
 * Use flutter 2.0 to migrate to null-safety
