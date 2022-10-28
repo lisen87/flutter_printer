@@ -36,18 +36,19 @@ or
 
 Printer.printMapJsonLog(map,stackTrace: StackTrace.current,prefix: "我是前缀:",);
 ```
+
 ```dart
 
 配置颜色（可选）
-```dart
 Printer.config = ColorConfig(
       infoRgb: xtermRgb(Colors.red.red, Colors.red.green, Colors.red.blue),
       debugRgb: xtermRgb(Colors.orange.red, Colors.orange.green, Colors.orange.blue),
       warnRgb: xtermRgb(Colors.brown.red, Colors.brown.green, Colors.brown.blue),
       errorRgb: xtermRgb(Colors.teal.red, Colors.teal.green, Colors.teal.blue),
     );
-```dart
+```
 
+```dart
 当你发布的时候请关闭数据打印
 Please turn off data printing when you publish it.
 
