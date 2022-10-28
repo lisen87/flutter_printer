@@ -55,8 +55,8 @@ Printer.enable = false;
 
 ```
 
-![](https://github.com/lisen87/flutter_printer/blob/master/screenshots/printer1.jpg)
-![](https://github.com/lisen87/flutter_printer/blob/master/screenshots/xterm256.jpg)
+![](https://github.com/lisen87/flutter_printer/blob/master/screenshots/printer1.png)
+![](https://github.com/lisen87/flutter_printer/blob/master/screenshots/xterm256.png)
 
 Printer property | description
 --------|------------
