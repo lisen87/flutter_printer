@@ -13,7 +13,7 @@ Handling the original flutter print method incomplete, no json format problem.Th
 
 ```yaml
 # add this line to your dependencies
-flutter_printer: ^2.0.2
+flutter_printer: ^2.0.3
 ```
 
 ```dart
