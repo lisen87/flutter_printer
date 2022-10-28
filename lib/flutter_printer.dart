@@ -258,7 +258,11 @@ class Printer {
   }
 
   static _print(Object? object,int? xtermRgb){
-    print('\x1B[38;5;${xtermRgb}m$object\x1B[0m');
+    if(config.enableColor!){
+      print('\x1B[38;5;${xtermRgb}m$object\x1B[0m');
+    }else{
+      print(object);
+    }
   }
 }
 
@@ -273,8 +277,9 @@ class ColorConfig{
   final int? warnRgb;
   /// xterm color
   final int? errorRgb;
-
-  ColorConfig({this.infoRgb = 10, this.debugRgb = 14, this.warnRgb = 11, this.errorRgb = 9});
+  /// enableColor
+  final bool? enableColor;
+  ColorConfig({this.infoRgb = 10, this.debugRgb = 14, this.warnRgb = 11, this.errorRgb = 9,this.enableColor = true});
 }
 
 /// red 0-255

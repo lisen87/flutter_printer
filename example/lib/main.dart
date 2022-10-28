@@ -68,14 +68,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
       Printer.printMapJsonLog(
-        map1,
+        map,
         stackTrace: StackTrace.current,
         prefix: "我是测试前缀:",
       );
-      Printer.debug(
-        list,
-        stackTrace: StackTrace.current,
-      );
+      Printer.debug(list);
       Printer.warn(
         list2,
         stackTrace: StackTrace.current,
@@ -106,12 +103,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    // Printer.config = ColorConfig(
-    //   infoRgb: xtermRgb(Colors.red.red, Colors.red.green, Colors.red.blue),
-    //   debugRgb: xtermRgb(Colors.orange.red, Colors.orange.green, Colors.orange.blue),
-    //   warnRgb: xtermRgb(Colors.brown.red, Colors.brown.green, Colors.brown.blue),
-    //   errorRgb: xtermRgb(Colors.teal.red, Colors.teal.green, Colors.teal.blue),
-    // );
+    Printer.config = ColorConfig(
+      infoRgb: xtermRgb(Colors.red.red, Colors.red.green, Colors.red.blue),
+      debugRgb: xtermRgb(Colors.orange.red, Colors.orange.green, Colors.orange.blue),
+      warnRgb: xtermRgb(Colors.brown.red, Colors.brown.green, Colors.brown.blue),
+      errorRgb: xtermRgb(Colors.teal.red, Colors.teal.green, Colors.teal.blue),
+      enableColor: false
+    );
   }
 
   @override

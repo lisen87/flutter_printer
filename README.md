@@ -13,7 +13,7 @@ Handling the original flutter print method incomplete, no json format problem.Th
 
 ```yaml
 # add this line to your dependencies
-flutter_printer: ^2.0.1
+flutter_printer: ^2.0.2
 ```
 
 ```dart
@@ -21,6 +21,15 @@ import 'package:flutter_printer/flutter_printer.dart';
 ```
 
 ```dart
+
+Printer.info('info log');
+
+Printer.debug('debug log');
+
+Printer.warn('warn log');
+
+Printer.error('error log');
+
 Printer.printMapJsonLog(list,stackTrace: StackTrace.current,);
 
 or
@@ -28,6 +37,17 @@ or
 Printer.printMapJsonLog(map,stackTrace: StackTrace.current,prefix: "我是前缀:",);
 ```
 ```dart
+
+配置颜色（可选）
+```dart
+Printer.config = ColorConfig(
+      infoRgb: xtermRgb(Colors.red.red, Colors.red.green, Colors.red.blue),
+      debugRgb: xtermRgb(Colors.orange.red, Colors.orange.green, Colors.orange.blue),
+      warnRgb: xtermRgb(Colors.brown.red, Colors.brown.green, Colors.brown.blue),
+      errorRgb: xtermRgb(Colors.teal.red, Colors.teal.green, Colors.teal.blue),
+    );
+```dart
+
 当你发布的时候请关闭数据打印
 Please turn off data printing when you publish it.
 
@@ -35,7 +55,8 @@ Printer.enable = false;
 
 ```
 
-![](https://github.com/lisen87/flutter_printer/blob/master/screenshots/printer.png)
+![](https://github.com/lisen87/flutter_printer/blob/master/screenshots/printer1.jpg)
+![](https://github.com/lisen87/flutter_printer/blob/master/screenshots/xterm256.jpg)
 
 Printer property | description
 --------|------------
